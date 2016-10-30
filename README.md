@@ -3,7 +3,7 @@
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/yaml_creator`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 Create yaml file from simple array and hash.
-Not available nest array and hash.
+This gem not use yaml lib.
 
 ## Installation
 
@@ -29,6 +29,13 @@ Or install it yourself as:
 YamlCreator.from_array('your filepath', array, '"')
 # without enclosure.
 YamlCreator.from_array('your filepath', array)
+
+# YAML file from complex array(you can use nest)
+# array is made flatter and is made as yaml.
+# with enclosure, complex array.
+YamlCreator.from_complex_array('your filepath', array, '"')
+# without enclosure, complex array.
+YamlCreator.from_complex_array('your filepath', array)
 
 # YAML file from hash
 # with enclosure.

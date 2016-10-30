@@ -5,6 +5,8 @@ describe YamlCreator do
 
   let(:filepath) { 'C:\GitHub\test.yml' }
   let(:simple_array) { ["a", "b", "c"] }
+  let(:complex_array) { ["a", ["b", "c"], "d"] }
+  let(:complex_result_array) { ["a", "b", "c", "d"] }
   let(:simple_hash) { {a: "value_a", b: "value_b", c: "value_c"} }
   let(:simple_result_hash) { {"a" => "value_a", "b" => "value_b", "c" => "value_c"} }
 
@@ -29,6 +31,26 @@ describe YamlCreator do
 
     yaml_array = YAML.load_file(filepath)
     expect(yaml_array).to eq simple_array
+    File.delete(filepath)
+  end
+
+  it 'from complex array test, without enclosure' do
+
+    YamlCreator.from_complex_array(filepath, complex_array)
+    expect(File.exist?(filepath)). to be_truthy
+
+    yaml_array = YAML.load_file(filepath)
+    expect(yaml_array).to eq complex_result_array
+    File.delete(filepath)
+  end
+
+  it 'from complex array test, with enclosure' do
+
+    YamlCreator.from_complex_array(filepath, complex_array, '"')
+    expect(File.exist?(filepath)). to be_truthy
+
+    yaml_array = YAML.load_file(filepath)
+    expect(yaml_array).to eq complex_result_array
     File.delete(filepath)
   end
 

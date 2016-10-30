@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["h.shigemoto"]
   spec.email         = ["corporation.ore@gmail.com"]
 
-  spec.summary       = %q{Create yaml file from array and hash.}
-  spec.description   = %q{Create yaml file from array and hash.}
+  spec.summary       = %q{Create yaml file from array and hash. This gem not use yaml lib.}
+  spec.description   = %q{Create yaml file from array and hash. This gem not use yaml lib.}
   spec.homepage      = "https://github.com/koyupi/yaml_creator"
   spec.license       = "MIT"
 

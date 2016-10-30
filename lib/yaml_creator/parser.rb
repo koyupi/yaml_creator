@@ -16,6 +16,19 @@ module YamlCreator
       }
     end
 
+    # parse yaml from array.
+    # array is made flatter and is made as yaml.
+    # @param [Array] array target array
+    # @param [String] enclosure enclosure character
+    # @return [Array] yaml array
+    def self.from_complex_array(array, enclosure="")
+
+      # flatten array.
+      flatten_array = array.flatten
+      # create yaml array.
+      from_array(flatten_array, enclosure)
+    end
+
     # parse yaml from hash.
     # @param [Hash] hash yaml hash
     # @param [String] enclosure enclosure character
