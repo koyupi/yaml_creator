@@ -41,6 +41,18 @@ module YamlCreator
     save_file(filepath, yaml_array)
   end
 
+  # create yaml file from hash(allow nest).
+  # @param [String] filepath save yaml file path
+  # @param [Hash] hash target hash
+  # @param [String] enclosure enclosure character
+  def self.from_complex_hash(filepath, hash, enclosure="")
+
+    # create yaml array.
+    yaml_array = YamlCreator::Parser.from_complex_hash(hash, enclosure)
+    # save file.
+    save_file(filepath, yaml_array)
+  end
+
   private
 
   # save yaml file.
