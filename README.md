@@ -46,9 +46,9 @@ YamlCreator.from_hash('your filepath', hash)
 # YAML file from complex hash(you can use nest)
 # tab is four space string.
 # with enclosure, complex hash.
-YamlCreator.from_complex_hash('your filepath, hash, '"')
+YamlCreator.from_complex_hash('your filepath', hash, '"')
 # without enclosure, complex hash.
-YamlCreator.from_complex_hash('your filepath, hash)
+YamlCreator.from_complex_hash('your filepath', hash)
 ```
 
 ## Development
