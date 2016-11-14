@@ -95,4 +95,24 @@ describe YamlCreator do
     expect(yaml_array).to eq complex_result_hash
     File.delete(filepath)
   end
+
+  it 'from json test, without enclosure' do
+
+    YamlCreator.from_json(filepath, complex_hash.to_json)
+    expect(File.exist?(filepath)).to be_truthy
+
+    yaml_array = YAML.load_file(filepath)
+    expect(yaml_array).to eq complex_result_hash
+    File.delete(filepath)
+  end
+
+  it 'from json test, with enclosure' do
+
+    YamlCreator.from_json(filepath, complex_hash.to_json, '"')
+    expect(File.exist?(filepath)).to be_truthy
+
+    yaml_array = YAML.load_file(filepath)
+    expect(yaml_array).to eq complex_result_hash
+    File.delete(filepath)
+  end
 end

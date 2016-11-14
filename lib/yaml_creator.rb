@@ -1,5 +1,6 @@
 require "yaml_creator/version"
 require "yaml_creator/parser"
+require "json"
 
 # yaml creator module
 module YamlCreator
@@ -49,6 +50,20 @@ module YamlCreator
 
     # create yaml array.
     yaml_array = YamlCreator::Parser.from_complex_hash(hash, enclosure)
+    # save file.
+    save_file(filepath, yaml_array)
+  end
+
+  # create yaml file from json.
+  # @param [String] filepath save yaml file path
+  # @param [Json] json json
+  # @param [String] enclosure enclosure character
+  def self.from_json(filepath, json, enclosure="")
+
+    # convert to hash.
+    hash = JSON.parse(json)
+    # create yaml array.
+    yaml_array = from_complex_hash(filepath, hash, enclosure)
     # save file.
     save_file(filepath, yaml_array)
   end
