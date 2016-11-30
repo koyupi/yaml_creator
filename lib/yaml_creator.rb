@@ -75,11 +75,25 @@ module YamlCreator
   # @param [Array] save array
   def self.save_file(filepath, array)
 
+    # generate filepath.
+    if filepath.empty?
+      filepath = generate_filepath
+    end
+
     # write to file.
     File.open(filepath, "w") do |file|
       array.each { |value|
         file.puts(value)
       }
     end
+  end
+
+  # generate filepath.
+  # @return [String] filepath
+  def self.generate_filepath
+
+    # generate yaml filename.
+    time_str = Time.now.strftime("%Y%m%d%H%M%S%3N")
+    "#{time_str}.yml"
   end
 end

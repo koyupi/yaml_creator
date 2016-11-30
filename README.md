@@ -4,6 +4,7 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 Create yaml file from array, hash, and json.
 This gem not use yaml lib.
+You specify filepath empty, generate filepath [ %Y%m%d%H%M%S%3N.yml ].
 
 ## Installation
 

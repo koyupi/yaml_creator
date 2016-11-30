@@ -115,4 +115,10 @@ describe YamlCreator do
     expect(yaml_array).to eq complex_result_hash
     File.delete(filepath)
   end
+
+  it 'generate filepath test' do
+
+    YamlCreator.from_array("", simple_array)
+    expect(true).to be_truthy
+  end
 end
