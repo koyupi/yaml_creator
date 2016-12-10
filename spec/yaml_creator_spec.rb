@@ -38,7 +38,7 @@ describe YamlCreator do
 
   it 'from complex array test, without enclosure' do
 
-    YamlCreator.from_complex_array(filepath, complex_array)
+    YamlCreator.from_array(filepath, complex_array)
     expect(File.exist?(filepath)).to be_truthy
 
     yaml_array = YAML.load_file(filepath)
@@ -48,7 +48,7 @@ describe YamlCreator do
 
   it 'from complex array test, with enclosure' do
 
-    YamlCreator.from_complex_array(filepath, complex_array, '"')
+    YamlCreator.from_array(filepath, complex_array, '"')
     expect(File.exist?(filepath)).to be_truthy
 
     yaml_array = YAML.load_file(filepath)
@@ -78,7 +78,7 @@ describe YamlCreator do
 
   it 'from complex hash test, without enclosure' do
 
-    YamlCreator.from_complex_hash(filepath, complex_hash)
+    YamlCreator.from_hash(filepath, complex_hash)
     expect(File.exist?(filepath)).to be_truthy
 
     yaml_array = YAML.load_file(filepath)
@@ -88,7 +88,7 @@ describe YamlCreator do
 
   it 'from complex hash test, with enclosure' do
 
-    YamlCreator.from_complex_hash(filepath, complex_hash, '"')
+    YamlCreator.from_hash(filepath, complex_hash, '"')
     expect(File.exist?(filepath)).to be_truthy
 
     yaml_array = YAML.load_file(filepath)

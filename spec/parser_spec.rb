@@ -30,13 +30,13 @@ describe YamlCreator::Parser do
 
   it 'create complex array test, without enclosure' do
 
-    yaml_array = YamlCreator::Parser.from_complex_array(complex_array)
+    yaml_array = YamlCreator::Parser.from_array(complex_array)
     expect(yaml_array).to eq complex_result_array
   end
 
   it 'create complex array test, with enclosure' do
 
-    yaml_array = YamlCreator::Parser.from_complex_array(complex_array, '"')
+    yaml_array = YamlCreator::Parser.from_array(complex_array, '"')
     expect(yaml_array).to eq complex_result_enclosure_array
   end
 
@@ -54,13 +54,13 @@ describe YamlCreator::Parser do
 
   it 'create complex hash test, without enclosure' do
 
-    yaml_array = YamlCreator::Parser.from_complex_hash(complex_hash)
+    yaml_array = YamlCreator::Parser.from_hash(complex_hash)
     expect(yaml_array).to eq complex_result_hash
   end
 
   it 'create complex hash test, with enclosure' do
 
-    yaml_array = YamlCreator::Parser.from_complex_hash(complex_hash, '"')
+    yaml_array = YamlCreator::Parser.from_hash(complex_hash, '"')
     expect(yaml_array).to eq complex_result_enclosure_hash
   end
 end

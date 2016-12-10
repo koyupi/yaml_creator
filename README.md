@@ -25,31 +25,18 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-# YAML file from array
+# YAML file from array(you can use nest)
 # with enclosure.
 YamlCreator.from_array('your filepath', array, '"')
 # without enclosure.
 YamlCreator.from_array('your filepath', array)
 
-# YAML file from complex array(you can use nest)
-# array is made flatter and is made as yaml.
-# with enclosure, complex array.
-YamlCreator.from_complex_array('your filepath', array, '"')
-# without enclosure, complex array.
-YamlCreator.from_complex_array('your filepath', array)
-
-# YAML file from hash
+# YAML file from hash(you can use nest)
+# tab is four space string.
 # with enclosure.
 YamlCreator.from_hash('your filepath', hash, '"')
 # without enclosure.
 YamlCreator.from_hash('your filepath', hash)
-
-# YAML file from complex hash(you can use nest)
-# tab is four space string.
-# with enclosure, complex hash.
-YamlCreator.from_complex_hash('your filepath', hash, '"')
-# without enclosure, complex hash.
-YamlCreator.from_complex_hash('your filepath', hash)
 
 # YAML file from JSON
 # with enclosure.

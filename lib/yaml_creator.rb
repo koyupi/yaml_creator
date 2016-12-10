@@ -5,7 +5,8 @@ require "json"
 # yaml creator module
 module YamlCreator
 
-  # create yaml file from array(not nest).
+  # create yaml file from array(allow nest).
+  # array is made flatter and is made as yaml.
   # @param [String] filepath save yaml file path
   # @param [Array] array target array
   # @param [String] enclosure enclosure character
@@ -17,20 +18,7 @@ module YamlCreator
     save_file(filepath, yaml_array)
   end
 
-  # create yaml file from array(allow nest).
-  # array is made flatter and is made as yaml.
-  # @param [String] filepath save yaml file path
-  # @param [Array] array target array
-  # @param [String] enclosure enclosure character
-  def self.from_complex_array(filepath, array, enclosure="")
-
-    # create yaml array.
-    yaml_array = YamlCreator::Parser.from_complex_array(array, enclosure)
-    # save file.
-    save_file(filepath, yaml_array)
-  end
-
-  # create yaml file from hash(not nest).
+  # create yaml file from hash(allow nest).
   # @param [String] filepath save yaml file path
   # @param [Hash] hash target hash
   # @param [String] enclosure enclosure character
@@ -38,18 +26,6 @@ module YamlCreator
 
     # create yaml array.
     yaml_array = YamlCreator::Parser.from_hash(hash, enclosure)
-    # save file.
-    save_file(filepath, yaml_array)
-  end
-
-  # create yaml file from hash(allow nest).
-  # @param [String] filepath save yaml file path
-  # @param [Hash] hash target hash
-  # @param [String] enclosure enclosure character
-  def self.from_complex_hash(filepath, hash, enclosure="")
-
-    # create yaml array.
-    yaml_array = YamlCreator::Parser.from_complex_hash(hash, enclosure)
     # save file.
     save_file(filepath, yaml_array)
   end
@@ -63,7 +39,7 @@ module YamlCreator
     # convert to hash.
     hash = JSON.parse(json)
     # create yaml array.
-    yaml_array = from_complex_hash(filepath, hash, enclosure)
+    yaml_array = from_hash(filepath, hash, enclosure)
     # save file.
     save_file(filepath, yaml_array)
   end
